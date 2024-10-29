@@ -1,37 +1,38 @@
-const Header = (props) => {
+const Header = ({course}) => {
   
   return(
     <>
-      <p>{props.course}</p>
+      <p>{course}</p>
     </>
   )
 }
-const Content = (props) => {
+const Content = ({parts}) => {
   
   
   return(
     <>
-      <Part partN={props.parts[0].name} exercisesN={props.parts[0].exercises} />
-      <Part partN={props.parts[1].name} exercisesN={props.parts[1].exercises} />
-      <Part partN={props.parts[2].name} exercisesN={props.parts[2].exercises} />
+      <Part partN={parts[0].name} exercisesN={parts[0].exercises} />
+      <Part partN={parts[1].name} exercisesN={parts[1].exercises} />
+      <Part partN={parts[2].name} exercisesN={parts[2].exercises} />
      
     </>
   )
 }
 
-const Part = (props) => {
+const Part = ({partN, exercisesN}) => {
+
   return(
     <>
-      <p>{props.partN} {props.exercisesN}</p>
+      <p> {partN} {exercisesN}</p>
     </>
   )
 }
 
-const Total = (props) => {
+const Total = ({exercises1, exercises2, exercises3}) => {
   
   return(
     <>
-      <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
+      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </>
   )
 }

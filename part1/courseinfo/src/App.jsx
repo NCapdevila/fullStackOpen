@@ -1,3 +1,9 @@
+import { useState } from "react"
+
+const Display = ({counter}) => <div>{counter}</div>
+
+const Button = ({event, text}) => <button onClick={event}>{text}</button>
+
 const Header = ({course}) => {
   
   return(
@@ -38,6 +44,12 @@ const Total = ({exercises1, exercises2, exercises3}) => {
 }
 
 function App() {
+const [ counter, setCounter ] = useState(0)
+
+const increaseByOne = () => setCounter(counter + 1)
+const decreaseByOne = () => setCounter(counter - 1)
+const reset = () => setCounter(0)
+
   const course = {
     name: 'Half Stack application development',
     parts: [
@@ -58,6 +70,12 @@ function App() {
 
   return (
     <>
+      <div>
+      <Display counter={counter} />
+      <Button event={increaseByOne} text='sumar' />
+      <Button event={decreaseByOne} text='restar' />
+      <Button event={reset} text='reset' />
+      </div>
       <h1>
         <Header course={course.name} />
       </h1>

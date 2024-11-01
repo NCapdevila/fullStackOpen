@@ -1,6 +1,16 @@
 import { useState } from "react"
 
-const Display = ({counter}) => <div>{counter}</div>
+const Display = ({clicks}) => {
+  if(clicks.length === 0){
+    return(
+      <p>No hay clicks aún</p>
+    )
+  }
+  return(
+    <div>{counter}</div>
+  )
+
+}
 
 const Button = ({event, text}) => <button onClick={event}>{text}</button>
 
@@ -45,6 +55,9 @@ const Total = ({exercises1, exercises2, exercises3}) => {
 
 function App() {
 const [ counter, setCounter ] = useState(0)
+const [ clicks, setClicks ] = useState([]) 
+
+setClicks(setCounter())
 
 const increaseByOne = () => setCounter(counter + 1)
 const decreaseByOne = () => setCounter(counter - 1)
@@ -71,7 +84,7 @@ const reset = () => setCounter(0)
   return (
     <>
       <div>
-      <Display counter={counter} />
+      <Display counter={clicks} />
       <Button event={increaseByOne} text='sumar' />
       <Button event={decreaseByOne} text='restar' />
       <Button event={reset} text='reset' />

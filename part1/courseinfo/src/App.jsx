@@ -55,9 +55,9 @@ const Total = ({exercises1, exercises2, exercises3}) => {
 
 function App() {
 const [ counter, setCounter ] = useState(0)
-const [ clicks, setClicks ] = useState([]) 
 
-setClicks(setCounter())
+
+
 
 const increaseByOne = () => setCounter(counter + 1)
 const decreaseByOne = () => setCounter(counter - 1)

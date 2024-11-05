@@ -24,18 +24,25 @@ const Statistics = ({good, neutral, bad}) =>{
   
   return(
     <>
-    <StaticLine text='good' value={good} />
-    <StaticLine text='neutral' value={neutral} />
-    <StaticLine text='bad' value={bad} />
-    <StaticLine text='avarege' value={average} />
-    <StaticLine text='positive' value={positive} />
-
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <StaticLine text='good' value={good} />
+            <StaticLine text='neutral' value={neutral} />
+            <StaticLine text='bad' value={bad} />
+            <StaticLine text='average' value={average} />
+            <StaticLine text='positive' value={positive} />
+          </td>
+        </tr>
+      </tbody>
+    </table>
     </>
   )
 }
 const StaticLine = ({text, value}) =>{
   return(
-    <p>{text} {value}</p>
+    <div>{text}: {value}</div>
   )
 }
 

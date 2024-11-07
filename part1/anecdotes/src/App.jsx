@@ -30,17 +30,30 @@ function App() {
     newPoint[selected] += 1
     setPoints(newPoint)
   }
-  console.log(points)
+ 
+  const maxValue = Math.max(...points)
+  const indexSelected = points.indexOf(maxValue)
 
+
+  
 
   return (
     <>
+      <h1>Anecdote of the day</h1>
       <div>
         {anecdotes[selected]}
       </div>
       <p>has {points[selected]} votes</p>
       <button onClick={handlerPoint}>vote</button>
       <button onClick={handlerSelected}>next anecdote</button>
+      <h1>Anecdote with most votes</h1>
+      <div>
+        {points.some(p => p > 0) ? (
+          anecdotes[indexSelected]
+        ) : (
+          <p>There is no vote</p>
+        )}
+      </div>
     </>
   )
 }

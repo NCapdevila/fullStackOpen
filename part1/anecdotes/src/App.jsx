@@ -13,7 +13,9 @@ function App() {
     'The only way to go fast, is to go well.'
   ]
 
+
   const [selected, setSelected] = useState(0)
+  const [points, setPoints] = useState(Array(anecdotes.length).fill(0))
 
   const handlerSelected = () => {
     const min = Math.ceil(0)
@@ -23,8 +25,12 @@ function App() {
       
     )
   }
-
-  console.log(selected)
+  const handlerPoint = () =>{
+    const newPoint = [...points]
+    newPoint[selected] += 1
+    setPoints(newPoint)
+  }
+  console.log(points)
 
 
   return (
@@ -32,6 +38,8 @@ function App() {
       <div>
         {anecdotes[selected]}
       </div>
+      <p>has {points[selected]} votes</p>
+      <button onClick={handlerPoint}>vote</button>
       <button onClick={handlerSelected}>next anecdote</button>
     </>
   )

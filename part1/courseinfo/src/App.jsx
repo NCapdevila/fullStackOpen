@@ -1,15 +1,13 @@
 import { useState } from "react"
 
 const Display = ({clicks}) => {
-  if(clicks.length === 0){
-    return(
+  clicks.length === 0 ? (
+    
       <p>No hay clicks aún</p>
-    )
-  }
-  return(
-    <div>{counter}</div>
+    
+  ) : (
+      <div>{counter}</div>
   )
-
 }
 
 const Button = ({event, text}) => <button onClick={event}>{text}</button>

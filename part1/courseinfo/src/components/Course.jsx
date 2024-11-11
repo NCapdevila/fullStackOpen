@@ -4,8 +4,13 @@ import Content from "./Content"
 const Course = ({course}) => {
     return(
         <>
-          <Header text ={course.name} />
-          <Content content={course.parts} />
+        {course.map(curso => 
+          <div key={curso.id}>
+          <Header  text ={curso.name} />
+          <Content  content={curso.parts} />
+          </div>
+        )}
+          
           
         </>
     )

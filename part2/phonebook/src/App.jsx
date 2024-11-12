@@ -12,6 +12,12 @@ const [newName, setNewName]=useState('')
 const addName = (event) => {
   event.preventDefault()
   console.log('Clicked', event.target);
+
+  if(persons.some(person => person.name === newName)){
+    alert(`${newName} is already added to phonebook`)
+    return;
+  }
+  
   const newPerson = {
     name : newName,
     id: persons.length + 1

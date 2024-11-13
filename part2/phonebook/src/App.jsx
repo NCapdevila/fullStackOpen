@@ -21,7 +21,7 @@ const addName = (event) => {
     phone: newPhone,
     id: persons.length + 1
   }
-  setPersons(persons.concat(newPerson))
+  setPersons([...persons, newPerson])
   setNewName('')
   setNewPhone('')
 
@@ -40,7 +40,7 @@ const handleFilterChange = (event) => {
   setNewFilter(event.target.value)
 }
 
-const personsFilter = persons.filter(person => person.name.toLowerCase() === newFilter.toLowerCase())
+const personsToShow = newFilter ? persons.filter(person => person.name.toLowerCase() === newFilter.toLowerCase()) : persons
 
   return (
     <>
@@ -61,11 +61,7 @@ const personsFilter = persons.filter(person => person.name.toLowerCase() === new
         </div>
       </form>
       <h2>Numbers</h2>
-      {personsFilter.length > 0 ? personsFilter.map(person => (
-        <div key={person.id}>
-          <p>{person.name} : {person.phone}</p>
-        </div>
-      )): persons.map(person => (
+      {personsToShow.map(person => (
         <div key={person.id}>
           <p>{person.name} : {person.phone}</p>
         </div>))}

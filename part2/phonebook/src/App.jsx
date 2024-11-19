@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import PersonForm from "./components/PersonForm"
 import Filter from "./components/Filter"
 import PersonsToShow from "./components/PersonsToShow"
+import axios from 'axios'
 
 
 function App() {
@@ -12,6 +13,15 @@ const [newName, setNewName]=useState('')
 const [newPhone, setNewPhone]=useState('')
 const [newFilter, setNewFilter]=useState('')
 
+useEffect(() => {
+  axios
+    .get('http://localhost:3001/persons')
+    .then(response => {
+      console.log('carga de datos ok');
+      setPersons(response.data)
+    })
+
+}, [])
 
 
 const handleNameChange = (event) => {
